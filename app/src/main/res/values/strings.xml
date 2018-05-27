@@ -1,0 +1,7 @@
+<resources>
+	<string name="app_name">LearnDaggerBasic</string>
+	<string name="submit">submit</string>
+	<string name="member">Member</string>
+	<string name="title">title</string>
+	<string name="enter_number">enter number</string>
+</resources>

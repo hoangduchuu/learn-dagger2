@@ -1,0 +1,80 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.example.hoang.learndaggerbasic"
+        minSdkVersion 15
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    implementation 'com.android.support:design:27.1.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation'com.android.support:support-v13:27.1.0'
+
+    //android support library
+    implementation"com.android.support:appcompat-v7:$rootProject.ext.supportLibVersion"
+    implementation"com.android.support:support-v13:$rootProject.ext.supportLibVersion"
+    implementation"com.android.support:recyclerview-v7:$rootProject.ext.supportLibVersion"
+    implementation"com.android.support:cardview-v7:$rootProject.ext.supportLibVersion"
+    implementation"com.android.support:support-v4:$rootProject.ext.supportLibVersion"
+    //network library
+    implementation'com.squareup.okhttp3:logging-interceptor:3.8.1'
+    implementation'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation'com.squareup.retrofit2:adapter-rxjava:2.3.0'
+    //butter knife
+    implementation"com.jakewharton:butterknife:$rootProject.ext.butterKnifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterKnifeVersion"
+    //dagger
+    implementation"com.google.dagger:dagger:$rootProject.ext.daggerVersion"
+    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.ext.daggerVersion"
+    compileOnly 'javax.annotation:jsr250-api:1.0'
+    //parceler
+    implementation"org.parceler:parceler-api:$rootProject.ext.parcelerVersion"
+    annotationProcessor "org.parceler:parceler:$rootProject.ext.parcelerVersion"
+    implementation'com.google.code.gson:gson:2.8.2'
+    implementation'com.jakewharton.timber:timber:4.7.0'
+    implementation'io.reactivex.rxjava2:rxjava:2.1.9'
+    implementation'io.reactivex.rxjava2:rxandroid:2.0.1'
+    // image Library
+    implementation'com.squareup.picasso:picasso:2.71828'
+    //    implementation 'com.github.bumptech.glide:glide:4.6.1'
+    //    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
+    // dialog
+    implementation 'com.github.thomper:sweet-alert-dialog:v1.4.0'
+    //time helper
+    implementation'net.danlew:android.joda:2.9.9.2'
+
+    // lib perrmission
+    implementation 'pub.devrel:easypermissions:1.2.0'
+
+
+    // image
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
+
+
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    implementation('com.crashlytics.sdk.android:crashlytics:2.9.1@aar') {
+        transitive = true;
+    }
+
+}
