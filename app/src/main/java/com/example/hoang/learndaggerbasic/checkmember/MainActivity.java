@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Inject @Named("local")
     MemberDataManager memberDataManager;
+    @Inject @Named("mm-dd-yyy: HH:mm:ss")
+    String currentDate  ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
                     String input = memberId.getText().toString();
                     String result = memberDataManager.checkMemberStatus(input);
-                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), result + "---"+currentDate, Toast.LENGTH_SHORT).show();
                 }
 
 

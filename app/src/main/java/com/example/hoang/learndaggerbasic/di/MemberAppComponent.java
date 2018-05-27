@@ -12,7 +12,7 @@ import dagger.Component;
 
 
 @Singleton
-@Component(modules = MemberDataModule.class)
+@Component(modules = {MemberDataModule.class, DateTimeModule.class})
 public interface MemberAppComponent {
     void inject(MainActivity mainActivity);
 }

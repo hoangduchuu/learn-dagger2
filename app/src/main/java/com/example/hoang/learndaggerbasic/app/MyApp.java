@@ -3,6 +3,7 @@ package com.example.hoang.learndaggerbasic.app;
 import android.app.Application;
 
 import com.example.hoang.learndaggerbasic.di.DaggerMemberAppComponent;
+import com.example.hoang.learndaggerbasic.di.DateTimeModule;
 import com.example.hoang.learndaggerbasic.di.MemberAppComponent;
 import com.example.hoang.learndaggerbasic.di.MemberDataModule;
 
@@ -20,6 +21,7 @@ public class MyApp extends Application {
         memberAppComponent = DaggerMemberAppComponent
                 .builder()
                 .memberDataModule(new MemberDataModule(getApplicationContext()))
+                .dateTimeModule(new DateTimeModule())
                 .build();
     }
 
