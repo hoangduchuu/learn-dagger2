@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Inject @Named("local")
     MemberDataManager memberDataManager;
-    @Inject @Named("mm-dd-yyy: HH:mm:ss")
+    @Inject @Named("mm-dd-yyy")
     String currentDate  ;
 
     @Override
