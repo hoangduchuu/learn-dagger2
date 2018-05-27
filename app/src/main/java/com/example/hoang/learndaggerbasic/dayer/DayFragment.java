@@ -21,11 +21,15 @@ import java.util.Objects;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link DayFragment.OnFragmentInteractionListener} interface
+ * {@link OnFragmentInteractionListener} interface
  * to handle interaction events.
  * Use the {@link DayFragment#newInstance} factory method to
  * create an instance of this fragment.
@@ -35,6 +39,9 @@ public class DayFragment extends DialogFragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    @BindView(R.id.tvValue)
+    TextView tvValue;
+    Unbinder unbinder;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -43,7 +50,6 @@ public class DayFragment extends DialogFragment {
     private OnFragmentInteractionListener mListener;
 
     private int enteredNumber;
-    private TextView textView;
 
     @Inject
     DayChooser dayChooser;
@@ -86,14 +92,14 @@ public class DayFragment extends DialogFragment {
 
         Objects.requireNonNull(getDialog().getWindow()).requestFeature(Window.FEATURE_NO_TITLE);
         View view = inflater.inflate(R.layout.fragment_day, container, false);
-        textView = (TextView) view.findViewById(R.id.tvValue);
 
 
         String day = dayChooser.getTheDay(enteredNumber);
 
-        textView.setText(day);
+        tvValue.setText(day);
 
 
+        unbinder = ButterKnife.bind(this, view);
         return view;
     }
 
@@ -119,6 +125,12 @@ public class DayFragment extends DialogFragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 
     /**
