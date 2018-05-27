@@ -2,7 +2,10 @@ package com.example.hoang.learndaggerbasic.app;
 
 import android.app.Application;
 
+import com.example.hoang.learndaggerbasic.di.DaggerDateChooserComponent;
 import com.example.hoang.learndaggerbasic.di.DaggerMemberAppComponent;
+import com.example.hoang.learndaggerbasic.di.DateChooserComponent;
+import com.example.hoang.learndaggerbasic.di.DateChooserModule;
 import com.example.hoang.learndaggerbasic.di.MemberAppComponent;
 import com.example.hoang.learndaggerbasic.di.MemberDataModule;
 
@@ -12,6 +15,7 @@ import com.example.hoang.learndaggerbasic.di.MemberDataModule;
 public class MyApp extends Application {
     private static MyApp app;
     private MemberAppComponent memberAppComponent;
+    private DateChooserComponent dateChooserComponent;
 
     @Override
     public void onCreate() {
@@ -21,6 +25,11 @@ public class MyApp extends Application {
                 .builder()
                 .memberDataModule(new MemberDataModule())
                 .build();
+
+        dateChooserComponent = DaggerDateChooserComponent
+                .builder().dateChooserModule(new DateChooserModule())
+                .build();
+
     }
 
     public static MyApp getApp() {
@@ -31,4 +40,7 @@ public class MyApp extends Application {
         return memberAppComponent;
     }
 
+    public DateChooserComponent getDateChooserComponent() {
+        return dateChooserComponent;
+    }
 }

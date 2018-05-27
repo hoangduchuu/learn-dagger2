@@ -5,44 +5,24 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 	
-	<TextView
-		android:id="@+id/tvTitle"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="20dp"
-		android:text="@string/title"
-		android:textAlignment="center"
-		android:textColor="#011a5c"
-		android:textSize="40dp" />
-	
-	
-	<ImageView
-		android:id="@+id/ivMember"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_below="@+id/tvTitle"
-		android:layout_centerHorizontal="true"
-		android:layout_marginTop="20dp"
-		android:src="@mipmap/member" />
-	
 	
 	<EditText
-		android:id="@+id/etMemberId"
+		android:id="@+id/etIndex"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_below="@+id/ivMember"
-		android:layout_marginTop="20dp"
-		android:hint="@string/enter_number"
+		android:layout_marginTop="120dp"
+		android:hint="@string/submit"
+		android:inputType="number"
 		android:textAlignment="center"
 		android:textColor="#011a5c"
 		android:textSize="30dp" />
 	
 	
 	<Button
-		android:id="@+id/btnSubmit"
+		android:id="@+id/btnView"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_below="@+id/etMemberId"
+		android:layout_below="@+id/etIndex"
 		android:layout_marginTop="20dp"
 		android:text="@string/submit"
 		android:textAlignment="center"
