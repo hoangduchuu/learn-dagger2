@@ -1,5 +1,7 @@
 package com.example.hoang.learndaggerbasic.data;
 
+import android.content.SharedPreferences;
+
 import com.example.hoang.learndaggerbasic.member.Member;
 
 import java.util.ArrayList;
@@ -11,8 +13,13 @@ public class MemberDataManager {
 
     private String memberStatus;
     private ArrayList<Member> members = new ArrayList<>();
+    private SharedPreferences sharedPreferences;
+    public static final String COUNTER_KEY = "counter";
+    private int currentCount;
 
-    public MemberDataManager() {
+
+    public MemberDataManager(SharedPreferences sharedPreferences) {
+        this.sharedPreferences = sharedPreferences;
 
         populateData();
     }
@@ -27,7 +34,9 @@ public class MemberDataManager {
 
             if ((m.getMemberId().equals(userInput))) {
 
-                memberStatus = "Access Granted";
+                updateAccessCount();
+                memberStatus = "Access Granted + : " + currentCount;
+
 
             }
 
@@ -36,6 +45,14 @@ public class MemberDataManager {
 
 
         return memberStatus;
+    }
+
+    private void updateAccessCount() {
+        sharedPreferences.edit().putInt(COUNTER_KEY, getCurrentCount() + 1).apply();
+    }
+
+    public int getCurrentCount() {
+        return currentCount = sharedPreferences.getInt(COUNTER_KEY, -1);
     }
 
 
