@@ -2,11 +2,12 @@ package com.example.hoang.learndaggerbasic.di;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 
-import com.example.hoang.learndaggerbasic.data.MemberDataManager;
+import com.example.hoang.learndaggerbasic.data.offline.MemberDataManager;
+import com.example.hoang.learndaggerbasic.data.online.NetWorkManager;
 
+import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -25,19 +26,34 @@ public class MemberDataModule {
 
     @Singleton
     @Provides
-    public Context provideContext(){
+    public Context provideContext() {
         return this.context;
     }
 
     @Singleton
     @Provides
-    public SharedPreferences provideSharedPreferences(){
+    public SharedPreferences provideSharedPreferences() {
         return PreferenceManager.getDefaultSharedPreferences(this.context);
     }
 
+
     @Singleton
     @Provides
-    MemberDataManager provideMemberDataManager(SharedPreferences sharedPreferences) {
+    NetWorkManager provideNetWorkManager() {
+        return new NetWorkManager();
+    }
+
+    @Singleton
+    @Named("local")
+    @Provides
+    MemberDataManager provideMemberDataManagerOffline(SharedPreferences sharedPreferences) {
         return new MemberDataManager(sharedPreferences);
+    }
+
+    @Singleton
+    @Named("online")
+    @Provides
+    MemberDataManager provideMemberDataManagerOnline(SharedPreferences sharedPreferences, NetWorkManager netWorkManager) {
+        return new MemberDataManager(sharedPreferences, netWorkManager);
     }
 }

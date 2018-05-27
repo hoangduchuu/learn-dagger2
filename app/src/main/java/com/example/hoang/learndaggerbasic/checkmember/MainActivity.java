@@ -9,17 +9,16 @@ import android.widget.Toast;
 
 import com.example.hoang.learndaggerbasic.R;
 import com.example.hoang.learndaggerbasic.app.MyApp;
-import com.example.hoang.learndaggerbasic.data.MemberDataManager;
-import com.example.hoang.learndaggerbasic.di.DaggerMemberAppComponent;
-import com.example.hoang.learndaggerbasic.di.MemberDataModule;
+import com.example.hoang.learndaggerbasic.data.offline.MemberDataManager;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 public class MainActivity extends AppCompatActivity {
     private EditText memberId;
     private Button submitButton;
 
-    @Inject
+    @Inject @Named("local")
     MemberDataManager memberDataManager;
 
     @Override
