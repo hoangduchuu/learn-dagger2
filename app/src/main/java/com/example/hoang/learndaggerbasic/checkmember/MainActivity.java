@@ -27,10 +27,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        DaggerMemberAppComponent
-//                .builder()
-//                .memberDataModule(new MemberDataModule())
-//                .build().inject(this);
+
         MyApp.getApp().getMemberAppComponent().inject(this);
 
         memberId = (EditText) findViewById(R.id.etMemberId);

@@ -1,5 +1,7 @@
 package com.example.hoang.learndaggerbasic.di;
 
+import android.annotation.SuppressLint;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -24,7 +26,7 @@ public class DateTimeModule {
     @Named("dd-mm-yyy")
     @Provides
     public String provideCalendarType1(Calendar calendar) {
-        SimpleDateFormat sf = new SimpleDateFormat("dd-mm-yyy");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sf = new SimpleDateFormat("dd-mm-yyy");
         return sf.format(calendar.getTime());
     }
 
@@ -32,7 +34,7 @@ public class DateTimeModule {
     @Named("mm-dd-yyy")
     @Provides
     public String provideCalendarType2(Calendar calendar) {
-        SimpleDateFormat sf = new SimpleDateFormat("dd-mm-yyy");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sf = new SimpleDateFormat("dd-mm-yyy");
         return sf.format(calendar.getTime());
     }
 
@@ -40,7 +42,7 @@ public class DateTimeModule {
     @Named("mm-dd-yyy: HH:mm:ss")
     @Provides
     public String provideCalendarType3(Calendar calendar) {
-        SimpleDateFormat sf = new SimpleDateFormat("mm-dd-yyy: HH:mm:ss");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sf = new SimpleDateFormat("mm-dd-yyy: HH:mm:ss");
         return sf.format(calendar.getTime());
     }
 }
