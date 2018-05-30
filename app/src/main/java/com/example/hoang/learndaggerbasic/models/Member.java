@@ -1,4 +1,4 @@
-package com.example.hoang.learndaggerbasic.member;
+package com.example.hoang.learndaggerbasic.models;
 
 /**
  * Created by hoang on 27/05/2018 nhe.

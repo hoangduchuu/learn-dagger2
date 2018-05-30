@@ -2,10 +2,10 @@ package com.example.hoang.learndaggerbasic.app;
 
 import android.app.Application;
 
-import com.example.hoang.learndaggerbasic.di.DaggerMemberAppComponent;
-import com.example.hoang.learndaggerbasic.di.DateTimeModule;
-import com.example.hoang.learndaggerbasic.di.MemberAppComponent;
-import com.example.hoang.learndaggerbasic.di.MemberDataModule;
+import com.example.hoang.learndaggerbasic.di.component.DaggerMemberAppComponent;
+import com.example.hoang.learndaggerbasic.di.module.DateTimeModule;
+import com.example.hoang.learndaggerbasic.di.component.MemberAppComponent;
+import com.example.hoang.learndaggerbasic.di.module.MemberDataModule;
 
 /**
  * Created by hoang on 27/05/2018 nhe.
@@ -23,6 +23,7 @@ public class MyApp extends Application {
                 .memberDataModule(new MemberDataModule(getApplicationContext()))
                 .dateTimeModule(new DateTimeModule())
                 .build();
+
     }
 
     public static MyApp getApp() {
@@ -32,5 +33,6 @@ public class MyApp extends Application {
     public MemberAppComponent getMemberAppComponent() {
         return memberAppComponent;
     }
+
 
 }

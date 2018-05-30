@@ -1,4 +1,4 @@
-package com.example.hoang.learndaggerbasic.di;
+package com.example.hoang.learndaggerbasic.di.module;
 
 import android.content.Context;
 import android.content.SharedPreferences;

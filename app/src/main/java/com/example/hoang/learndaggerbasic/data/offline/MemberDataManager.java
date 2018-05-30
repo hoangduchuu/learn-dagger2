@@ -3,7 +3,7 @@ package com.example.hoang.learndaggerbasic.data.offline;
 import android.content.SharedPreferences;
 
 import com.example.hoang.learndaggerbasic.data.online.NetWorkManager;
-import com.example.hoang.learndaggerbasic.member.Member;
+import com.example.hoang.learndaggerbasic.models.Member;
 
 import java.util.ArrayList;
 

@@ -1,5 +1,6 @@
 package com.example.hoang.learndaggerbasic.checkmember;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import com.example.hoang.learndaggerbasic.R;
 import com.example.hoang.learndaggerbasic.app.MyApp;
 import com.example.hoang.learndaggerbasic.data.offline.MemberDataManager;
+import com.example.hoang.learndaggerbasic.welcome.WelcomeActivity;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -18,10 +20,12 @@ public class MainActivity extends AppCompatActivity {
     private EditText memberId;
     private Button submitButton;
 
-    @Inject @Named("local")
+    @Inject
+    @Named("local")
     MemberDataManager memberDataManager;
-    @Inject @Named("mm-dd-yyy")
-    String currentDate  ;
+    @Inject
+    @Named("dd-mm-yyy")
+    String currentDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +48,20 @@ public class MainActivity extends AppCompatActivity {
                 } else {
 
                     String input = memberId.getText().toString();
+
+
                     String result = memberDataManager.checkMemberStatus(input);
-                    Toast.makeText(getApplicationContext(), result + "---"+currentDate, Toast.LENGTH_SHORT).show();
+
+
+                    if (result.equals("Access Denied")) {
+                        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+
+                    } else {
+
+                        Intent intent = new Intent(MainActivity.this, WelcomeActivity.class);
+                        intent.putExtra("result", result);
+                        startActivity(intent);
+                    }
                 }
 
 

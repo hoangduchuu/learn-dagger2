@@ -1,6 +1,8 @@
-package com.example.hoang.learndaggerbasic.di;
+package com.example.hoang.learndaggerbasic.di.module;
 
 import android.annotation.SuppressLint;
+
+import com.example.hoang.learndaggerbasic.di.scope.MyActivityScope;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -16,7 +18,7 @@ import dagger.Provides;
  */
 @Module
 public class DateTimeModule {
-    @Singleton
+    @MyActivityScope
     @Provides
     Calendar provideCalendar() {
         return Calendar.getInstance();
@@ -30,7 +32,7 @@ public class DateTimeModule {
         return sf.format(calendar.getTime());
     }
 
-    @Singleton
+    @MyActivityScope
     @Named("mm-dd-yyy")
     @Provides
     public String provideCalendarType2(Calendar calendar) {
@@ -38,7 +40,7 @@ public class DateTimeModule {
         return sf.format(calendar.getTime());
     }
 
-    @Singleton
+    @MyActivityScope
     @Named("mm-dd-yyy: HH:mm:ss")
     @Provides
     public String provideCalendarType3(Calendar calendar) {
