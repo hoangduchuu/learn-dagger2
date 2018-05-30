@@ -30,8 +30,9 @@ public class MyApp extends Application {
 
         welcomeComponent = DaggerWelcomeComponent
                 .builder()
+                .memberAppComponent(memberAppComponent) // becau welcomeComponent dependent memberAppComponent
                 .messageModule(new MessageModule())
-        .build();
+                .build();
 
     }
 
