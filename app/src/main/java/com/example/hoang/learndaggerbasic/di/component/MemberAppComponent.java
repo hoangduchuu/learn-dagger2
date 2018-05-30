@@ -20,9 +20,8 @@ import dagger.Component;
 @MyActivityScope
 @Singleton
 @Component(modules = {MemberDataModule.class,
-        DateTimeModule.class, MessageModule.class})
+        DateTimeModule.class})
 public interface MemberAppComponent {
     void inject(MainActivity mainActivity);
 
-    void inject(WelcomeActivity welcomeActivity);
 }

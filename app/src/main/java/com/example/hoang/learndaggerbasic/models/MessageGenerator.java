@@ -8,6 +8,9 @@ public class MessageGenerator {
 
     private String welcomeMessage;
 
+    public MessageGenerator() {
+    }
+
     public String getWelcomeMessage() {
 
         welcomeMessage="Welcome Back";
