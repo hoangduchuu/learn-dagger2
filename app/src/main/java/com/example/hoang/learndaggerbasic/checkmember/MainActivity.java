@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                     } else {
 
                         Intent intent = new Intent(MainActivity.this, WelcomeActivity.class);
-                        intent.putExtra("result", result);
+                        intent.putExtra("result", result + currentDate);
                         startActivity(intent);
                     }
                 }
