@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     @Named("local")
     MemberDataManager memberDataManager;
     @Inject
-    @Named("mm-dd-yyy: HH:mm:ss")
+    @Named("mm-dd-yyy: HH:mm:ss ")
     String currentDate;
 
     @Override

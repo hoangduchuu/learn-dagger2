@@ -1,4 +1,2 @@
-# learn-dagger2 step by step
-## this repository just using for my coding time
-#### this branch for Scope
-
+# learn-dagger2
+### this repository occur while learning by coding  
