@@ -33,6 +33,7 @@
 		android:layout_below="@+id/ivMember"
 		android:layout_marginTop="20dp"
 		android:hint="@string/enter_number"
+		android:text="123"
 		android:textAlignment="center"
 		android:textColor="#011a5c"
 		android:textSize="30dp" />

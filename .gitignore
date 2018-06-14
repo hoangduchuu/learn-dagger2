@@ -1,4 +1,6 @@
 
+*.xml
+
 \.gradle/
 
 \.idea/
